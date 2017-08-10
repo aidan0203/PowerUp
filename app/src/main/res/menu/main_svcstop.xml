@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/STOPSVC"
+        android:title="@string/STR_STOPSVC"/>
+    <item
+        android:id="@+id/ABOUT"
+        android:title="@string/STR_ABOUT"/>
+    <item
+        android:id="@+id/MINIMIZE"
+        android:title="@string/STR_MINIMIZE"/>
+    <item
+        android:id="@+id/EXIT"
+        android:title="@string/STR_EXIT"/>
+
+</menu>

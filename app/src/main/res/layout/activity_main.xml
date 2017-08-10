@@ -1,0 +1,300 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:background="@color/White"
+    tools:context=".MainActivity" >
+	<android.support.v7.widget.Toolbar
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/toolbar" />
+	<ScrollView
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+		android:layout_below="@+id/toolbar">
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent" >
+
+			<RelativeLayout
+			    android:id="@+id/sLayout1"
+			    android:layout_width="match_parent"
+			    android:layout_height="220dp"
+			    android:layout_marginBottom="10dp"
+			    android:layout_marginLeft="10dp"
+			    android:layout_marginRight="10dp"
+			    android:layout_marginTop="15dp"
+			    android:background="@drawable/inelement" >
+
+			    <ProgressBar
+			        style="?android:attr/progressBarStyleHorizontal"
+		            android:max="100"
+	   				android:progress="100"
+				    android:progressDrawable="@drawable/circular_white" 
+			        android:layout_width="120dp"
+			        android:layout_height="120dp"
+			        android:layout_margin="15dp"
+			        android:gravity="center"/>
+			    
+				<ProgressBar
+			        android:id="@+id/mGauge"
+			        android:rotation="-90"
+		            style="?android:attr/progressBarStyleHorizontal"
+		            android:max="100"
+	   				android:progress="34"
+				    android:progressDrawable="@drawable/circular" 
+			        android:layout_width="120dp"
+			        android:layout_height="120dp"
+			        android:layout_margin="15dp"
+			        android:gravity="center"/>
+	   			    
+	 		    <TextView
+	 		        android:id="@+id/txtCapacity"
+	 		        android:layout_width="120dp"
+	 		        android:layout_height="120dp"
+	 		        android:layout_margin="15dp"
+	 		        android:background="@drawable/circular_white"
+	 		        android:gravity="center"
+	 		        android:text="@string/STR_PLACEHOLDER"
+	 		        android:textAppearance="?android:attr/textAppearanceLarge"
+	 		        android:textColor="@color/TextColor"
+	 		        android:textSize="40sp"
+	 		        android:textStyle="normal" />
+			        
+			    <TextView
+			        android:id="@+id/txtCharge"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:layout_marginRight="15dp"
+			        android:layout_marginTop="15dp"
+			        android:layout_toRightOf="@+id/txtCapacity"
+			        android:gravity="right"
+			        android:text="@string/STR_TEMPCAPACITY"
+			        android:textAppearance="?android:attr/textAppearanceLarge"
+			        android:textColor="@color/TextColor"
+			        android:textSize="25sp"
+			        android:textStyle="bold" />
+	
+			    <TextView
+			        android:id="@+id/txtChargeTotal"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:layout_below="@+id/nt01"
+			        android:layout_marginRight="15dp"
+			        android:layout_marginTop="15dp"
+			        android:gravity="right"
+			        android:text="@string/STR_TEMPCAPACITY"
+			        android:textAppearance="?android:attr/textAppearanceLarge"
+			        android:textColor="@color/TextColor"
+			        android:textSize="25sp"
+			        android:textStyle="bold" />
+	
+			    <TextView
+			        android:id="@+id/nt01"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:layout_below="@+id/txtCharge"
+			        android:layout_marginRight="15dp"
+			        android:text="CURRENT CHARGE"
+			        android:textAppearance="?android:attr/textAppearanceMedium"
+			        android:textColor="@color/TextColor"
+			        android:textSize="12sp" />
+	
+			    <TextView
+			        android:id="@+id/nt02"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:layout_below="@id/txtChargeTotal"
+			        android:layout_marginRight="15dp"
+			        android:text="TOTAL CHARGE"
+			        android:textAppearance="?android:attr/textAppearanceMedium"
+			        android:textColor="@color/TextColor"
+			        android:textSize="12sp" />
+	
+			    <Button
+			        android:id="@+id/btnBatteryUsage"
+			        android:layout_width="wrap_content"
+			        android:layout_height="40dp"
+			        android:layout_alignParentBottom="false"
+			        android:layout_below="@+id/mGauge"
+			        android:layout_centerHorizontal="true"
+			        android:layout_marginBottom="15dp"
+			        android:layout_marginTop="5dp"
+			        android:background="@drawable/buttonstyle"
+			        android:paddingLeft="15dp"
+			        android:paddingRight="15dp"
+			        android:text="SHOW BATTERY USAGE"
+			        android:textColor="@color/TextColor"
+			        android:textSize="14sp" />
+	
+			</RelativeLayout>
+		
+			<RelativeLayout
+			    android:id="@+id/sLayout2"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_below="@+id/sLayout1"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp" >
+
+				<ImageView
+					android:id="@+id/imgState"
+					android:layout_width="30dp"
+					android:layout_height="30dp"
+					android:layout_marginBottom="4dp"
+					android:src="@drawable/ic_state" />
+
+				<TextView
+					android:id="@+id/txtStateLabel"
+					android:layout_width="120dp"
+					android:layout_height="30dp"
+					android:layout_toEndOf="@+id/imgState"
+					android:padding="5dp"
+					android:text="State"
+					android:textSize="16sp" />
+
+				<TextView
+					android:id="@+id/txtState"
+					android:layout_width="match_parent"
+					android:layout_height="30dp"
+					android:layout_alignParentEnd="true"
+					android:layout_toEndOf="@+id/txtStateLabel"
+					android:gravity="right|center"
+					android:text="Discharging"
+					android:textColor="@color/DarkGrey"
+					android:textSize="16sp"
+					android:textStyle="bold" />
+
+				<ImageView
+					android:id="@+id/imgHealth"
+					android:layout_width="30dp"
+					android:layout_height="30dp"
+					android:layout_below="@+id/imgState"
+					android:layout_marginBottom="4dp"
+					android:src="@drawable/ic_health" />
+
+				<TextView
+					android:id="@+id/txtHealthLabel"
+					android:layout_width="120dp"
+					android:layout_height="30dp"
+					android:layout_below="@+id/imgState"
+					android:layout_toEndOf="@+id/imgHealth"
+					android:padding="5dp"
+					android:text="Health"
+					android:textSize="16sp" />
+
+				<TextView
+					android:id="@+id/txtHealth"
+					android:layout_width="match_parent"
+					android:layout_height="30dp"
+					android:layout_alignParentEnd="true"
+					android:layout_below="@+id/imgState"
+					android:layout_toEndOf="@+id/txtHealthLabel"
+					android:gravity="right|center"
+					android:text="Good"
+					android:textColor="@color/DarkGrey"
+					android:textSize="16sp"
+					android:textStyle="bold" />
+
+				<ImageView
+					android:id="@+id/imgCurrent"
+					android:layout_width="30dp"
+					android:layout_height="30dp"
+					android:layout_below="@+id/imgHealth"
+					android:layout_marginBottom="4dp"
+					android:src="@drawable/ic_current" />
+
+				<TextView
+					android:id="@+id/txtCurrentLabel"
+					android:layout_width="120dp"
+					android:layout_height="30dp"
+					android:layout_below="@+id/imgHealth"
+					android:layout_toEndOf="@+id/imgCurrent"
+					android:padding="5dp"
+					android:text="Current"
+					android:textSize="16sp" />
+
+				<TextView
+					android:id="@+id/txtCurrent"
+					android:layout_width="match_parent"
+					android:layout_height="30dp"
+					android:layout_alignParentEnd="true"
+					android:layout_below="@+id/imgHealth"
+					android:layout_toEndOf="@+id/txtCurrentLabel"
+					android:gravity="right|center"
+					android:text="+-0 mA"
+					android:textColor="@color/DarkGrey"
+					android:textSize="16sp"
+					android:textStyle="bold" />
+
+				<ImageView
+					android:id="@+id/imgTemperature"
+					android:layout_width="30dp"
+					android:layout_height="30dp"
+					android:layout_below="@+id/imgCurrent"
+					android:layout_marginBottom="4dp"
+					android:src="@drawable/ic_temperature" />
+
+				<TextView
+					android:id="@+id/txtTemperatureLabel"
+					android:layout_width="120dp"
+					android:layout_height="30dp"
+					android:layout_below="@+id/imgCurrent"
+					android:layout_toEndOf="@+id/imgTemperature"
+					android:padding="5dp"
+					android:text="Temperature"
+					android:textSize="16sp" />
+
+				<TextView
+					android:id="@+id/txtTemperature"
+					android:layout_width="match_parent"
+					android:layout_height="30dp"
+					android:layout_alignParentEnd="true"
+					android:layout_below="@+id/imgCurrent"
+					android:layout_toEndOf="@+id/txtTemperatureLabel"
+					android:gravity="right|center"
+					android:text="0"
+					android:textColor="@color/DarkGrey"
+					android:textSize="16sp"
+					android:textStyle="bold" />
+
+				<ImageView
+					android:id="@+id/imgVoltage"
+					android:layout_width="30dp"
+					android:layout_height="30dp"
+					android:layout_below="@+id/imgTemperature"
+					android:layout_marginBottom="3dp"
+					android:src="@drawable/ic_voltage" />
+
+				<TextView
+					android:id="@+id/txtVoltageLabel"
+					android:layout_width="120dp"
+					android:layout_height="30dp"
+					android:layout_below="@+id/imgTemperature"
+					android:layout_toEndOf="@+id/imgVoltage"
+					android:padding="5dp"
+					android:text="Voltage"
+					android:textSize="16sp" />
+
+				<TextView
+					android:id="@+id/txtVoltage"
+					android:layout_width="match_parent"
+					android:layout_height="30dp"
+					android:layout_alignParentEnd="true"
+					android:layout_below="@+id/imgTemperature"
+					android:layout_toEndOf="@+id/txtVoltageLabel"
+					android:gravity="right|center"
+					android:text="0 V"
+					android:textColor="@color/DarkGrey"
+					android:textSize="16sp"
+					android:textStyle="bold" />
+			   			    
+			</RelativeLayout>
+		</RelativeLayout>
+	</ScrollView>
+</RelativeLayout>

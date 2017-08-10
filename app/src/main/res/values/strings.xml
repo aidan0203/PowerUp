@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="Indigo">#3F51B5</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Black">#000000</color>
+    <color name="DarkGrey">#666666</color>
+    <color name="Grey">#909090</color>
+    
+    <!-- Adjust these colors according to the desired theme -->
+    <color name="MainTheme">#EF6C00</color>
+    <color name="MainThemeDark">#E65100</color>
+    <color name="TextColor">#EF6C00</color>
+    <color name="GaugeFilledColor">#EF6C00</color>
+    <color name="GaugeEmptyColor">#D0D0D0</color>
+    
+    <string name="app_name">PowerUp! Battery Stats</string>
+    <string name="STR_MENU">Menu</string>
+    <string name="STR_PLACEHOLDER">XXX</string>
+    <string name="STR_STARTSVC">Start service</string>
+    <string name="STR_STOPSVC">Stop service</string>
+    <string name="STR_BATTERYOPTIONS">Battery options</string>
+    <string name="STR_CHARGE">Charge:</string>
+    <string name="STR_CAPACITY">Capacity:</string>
+    <string name="STR_TEMPCAPACITY">9999 mAh</string>
+    <string name="STR_TEMP">TEMPERATURE</string>
+    <string name="STR_VOLTAGE">VOLTAGE</string>
+    <string name="STR_CURRENT">CURRENT</string>
+    <string name="STR_REFRESH">Refresh</string>
+    <string name="STR_STATE">STATE</string>
+    <string name="STR_HEALTH">HEALTH</string>
+    <string name="STR_ABOUT">About</string>
+    <string name="STR_MINIMIZE">Minimize</string>
+    <string name="STR_EXIT">Exit</string>
+    <string name="STR_BATTERYBUTTON">SHOW BATTERY USAGE</string>
+    <string name="STR_ZERO">0</string>                
+</resources>

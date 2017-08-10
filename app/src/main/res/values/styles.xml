@@ -1,0 +1,10 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- This is the styling for action bar -->
+        <item name="colorPrimary">@color/White</item>
+        <item name="colorPrimaryDark">@color/Grey</item>
+    </style>
+
+</resources>
