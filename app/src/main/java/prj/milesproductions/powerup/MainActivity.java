@@ -119,14 +119,14 @@ public class MainActivity extends AppCompatActivity {
     public void getBatteryData() {
         if(mDevice.equals("ExcitePrime")) {
             try {
-                float   prop_charge_full        = 2820.0f;
-                float   prop_capacity           = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/capacity").trim());
-                float   prop_temp               = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/batt_temp").trim());
-                String  prop_status             = FileUtils.fileRead("/sys/class/power_supply/battery/status").trim();
-                String  prop_health             = FileUtils.fileRead("/sys/class/power_supply/battery/health").trim();
-                float   prop_voltage            = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/BatterySenseVoltage").trim());
-                int     prop_current_charging   = Integer.parseInt(FileUtils.fileRead("/sys/class/power_supply/battery/BatteryAverageCurrent").trim());
-                long    prop_current_discharging= Long.parseLong(FileUtils.fileRead("/sys/class/power_supply/battery/device/FG_Battery_CurrentConsumption").trim());
+                float prop_charge_full = 2820.0f;
+                float prop_capacity = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/capacity").trim());
+                float prop_temp = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/batt_temp").trim());
+                String prop_status = FileUtils.fileRead("/sys/class/power_supply/battery/status").trim();
+                String prop_health = FileUtils.fileRead("/sys/class/power_supply/battery/health").trim();
+                float prop_voltage = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/BatterySenseVoltage").trim());
+                int prop_current_charging = Integer.parseInt(FileUtils.fileRead("/sys/class/power_supply/battery/BatteryAverageCurrent").trim());
+                long prop_current_discharging= Long.parseLong(FileUtils.fileRead("/sys/class/power_supply/battery/device/FG_Battery_CurrentConsumption").trim());
 
                 charge_now = Math.round(prop_charge_full * (prop_capacity / 100f));
                 charge_full = (int) prop_charge_full;
@@ -151,14 +151,14 @@ public class MainActivity extends AppCompatActivity {
             }
         } else if(mDevice.equals("FlareS")) {
             try {
-                float   prop_charge_full        = 1400.0f;
-                float   prop_capacity           = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/capacity").trim());
-                float   prop_temp               = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/batt_temp").trim());
-                String  prop_status             = FileUtils.fileRead("/sys/class/power_supply/battery/status").trim();
-                String  prop_health             = FileUtils.fileRead("/sys/class/power_supply/battery/health").trim();
-                float   prop_voltage            = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/BatterySenseVoltage").trim());
-                int     prop_current_charging   = Integer.parseInt(FileUtils.fileRead("/sys/class/power_supply/battery/BatteryAverageCurrent").trim());
-                long    prop_current_discharging= Long.parseLong(FileUtils.fileRead("/sys/class/power_supply/battery/device/FG_Battery_CurrentConsumption").trim());
+                float prop_charge_full = 1400.0f;
+                float prop_capacity = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/capacity").trim());
+                float prop_temp = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/batt_temp").trim());
+                String prop_status = FileUtils.fileRead("/sys/class/power_supply/battery/status").trim();
+                String prop_health = FileUtils.fileRead("/sys/class/power_supply/battery/health").trim();
+                float prop_voltage = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/BatterySenseVoltage").trim());
+                int prop_current_charging = Integer.parseInt(FileUtils.fileRead("/sys/class/power_supply/battery/BatteryAverageCurrent").trim());
+                long prop_current_discharging = Long.parseLong(FileUtils.fileRead("/sys/class/power_supply/battery/device/FG_Battery_CurrentConsumption").trim());
 
                 charge_now = Math.round(prop_charge_full * (prop_capacity / 100f));
                 charge_full = (int) prop_charge_full;
@@ -177,6 +177,30 @@ public class MainActivity extends AppCompatActivity {
                         current = (int) prop_current_discharging / -10;
                     }
                 }
+
+            } catch(IOException e) {
+                Log.e(TAG, "IOException: " + e.toString());
+            }
+        } else if(mDevice.equals("ASUS_T00I")) {
+            try {
+            	float prop_charge_now = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/charge_now").trim());
+                float prop_charge_full = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/charge_full").trim());
+                float prop_capacity = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/capacity").trim());
+                float prop_temp = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/temp_ambient").trim());
+                String prop_status = FileUtils.fileRead("/sys/class/power_supply/battery/status").trim();
+                String prop_health = FileUtils.fileRead("/sys/class/power_supply/battery/health").trim();
+                float prop_voltage = Float.parseFloat(FileUtils.fileRead("/sys/class/power_supply/battery/voltage_now").trim());
+                int prop_current = Integer.parseInt(FileUtils.fileRead("/sys/class/power_supply/battery/current_now").trim());
+                long prop_current_discharging = Long.parseLong(FileUtils.fileRead("/sys/class/power_supply/battery/current_now").trim());
+
+                charge_now = (int) prop_charge_now;
+                charge_full = (int) prop_charge_full;
+                capacity = (int) prop_capacity;
+                temp = prop_temp / 10;
+                voltage = prop_voltage / 1000;
+                status = prop_status;
+                health = prop_health;
+                current = prop_current;
 
             } catch(IOException e) {
                 Log.e(TAG, "IOException: " + e.toString());
