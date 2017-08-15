@@ -15,7 +15,7 @@ import android.support.v4.app.NotificationCompat;
 public class AmpereMeterService extends Service {
     public Runnable mTask;
     private Handler handler;
-    private int mNotificationId;
+    private int mNotificationId = 1;
     private MainActivity m;
     private NotificationManager mNotifyMgr;
 
@@ -33,16 +33,15 @@ public class AmpereMeterService extends Service {
         super.onCreate();
 
         handler = new Handler();
-        mNotificationId = 1;
         m = new MainActivity();
         mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
     }
 
     public int onStartCommand(Intent intent, int flags, int startId) {
         Intent resultIntent = new Intent(this, MainActivity.class);
-        final PendingIntent resultPendingIntent = PendingIntent.getActivity(this,0,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+        final PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        m.getDeviceName();
+        m.mDevice = m.getDeviceName();
         m.getBatteryData();
 
         Notification mNotif = new NotificationCompat.Builder(this)
@@ -52,6 +51,7 @@ public class AmpereMeterService extends Service {
             .setContentIntent(resultPendingIntent)
             .setContentTitle(m.status + " (" + m.capacity + "%)")
             .setContentText("C: " + m.charge_now + " / " + m.charge_full + " mAh (" + m.current + " mA) T: " + m.temp + " °C")
+            .setPriority(Notification.PRIORITY_LOW)
             .build();
 
         mNotifyMgr.notify(mNotificationId, mNotif);
@@ -64,13 +64,14 @@ public class AmpereMeterService extends Service {
                     m.getBatteryData();
 
                     Notification mNotif = new NotificationCompat.Builder(AmpereMeterService.this)
-                            .setSmallIcon(R.drawable.ic_notification)
-                            .setOngoing(true)
-                            .setWhen(0)
-                            .setContentIntent(resultPendingIntent)
-                            .setContentTitle(m.status + " (" + m.capacity + "%)")
-                            .setContentText("C: " + m.charge_now + " / " + m.charge_full + " mAh (" + m.current + " mA) T: " + m.temp + " °C")
-                            .build();
+                        .setSmallIcon(R.drawable.ic_notification)
+                        .setOngoing(true)
+                        .setWhen(0)
+                        .setContentIntent(resultPendingIntent)
+                        .setContentTitle(m.status + " (" + m.capacity + "%)")
+                        .setContentText("C: " + m.charge_now + " / " + m.charge_full + " mAh (" + m.current + " mA) T: " + m.temp + " °C")
+                        .setPriority(Notification.PRIORITY_LOW)
+                        .build();
 
                     mNotifyMgr.notify(mNotificationId, mNotif);
                     handler.postDelayed(this, 5000);
